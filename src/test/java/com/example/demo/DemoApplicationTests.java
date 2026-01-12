@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.entities.Produit;
+import com.example.demo.entities.ProduitEntity;
 import com.example.demo.repositories.ProduitRepository;
 
 @SpringBootTest
@@ -18,19 +18,19 @@ class DemoApplicationTests {
 
 	@Test
 	public void testCreateProduit() {
-		Produit produit = new Produit("PC Hp", 2800.500, new Date());
+		ProduitEntity produit = new ProduitEntity("PC Test", 500.500, new Date());
 		produitRepository.save(produit);
 	}
 
 	@Test
 	public void testFindProduit() {
-		Produit produit = produitRepository.findById(1L).get();
+		ProduitEntity produit = produitRepository.findById(2L).get();
 		System.out.println(produit);
 	}
 
 		@Test
 	public void testUpdateProduit() {
-		Produit produit = produitRepository.findById(8L).get();
+		ProduitEntity produit = produitRepository.findById(5L).get();
 		produit.setNomProduit("PC Asus");
 		produitRepository.save(produit);
 		System.out.println(produit);
@@ -43,8 +43,8 @@ class DemoApplicationTests {
 
 	@Test
 	public void testFindAllProduits() {
-		List<Produit> produits = produitRepository.findAll();
-		for (Produit produit:produits)
+		List<ProduitEntity> produits = produitRepository.findAll();
+		for (ProduitEntity produit:produits)
 		System.out.println(produit);
 	}
 }

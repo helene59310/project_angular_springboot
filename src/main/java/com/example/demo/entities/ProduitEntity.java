@@ -19,7 +19,7 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @ToString
 @Entity
-public class Produit {
+public class ProduitEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduit;
