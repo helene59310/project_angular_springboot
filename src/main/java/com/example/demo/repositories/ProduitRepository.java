@@ -19,8 +19,12 @@ public interface ProduitRepository extends JpaRepository<ProduitEntity, Long> {
     List<ProduitEntity> findByNomPrix (@Param("nomProduit") String nomProduit,@Param("prixProduit") Double prixProduit);
 
     @Query("select p from ProduitEntity p where p.categorie = ?1")
-    List<ProduitEntity> findByCategorie (CategorieEntity categorie);
+    List<ProduitEntity> findByCategorie(CategorieEntity categorie);
 
     List<ProduitEntity> findByCategorieIdCat(Long id);
 
+    List<ProduitEntity> findByOrderByNomProduitAsc();
+
+    @Query("select p from ProduitEntity p order by p.nomProduit ASC, p.prixProduit DESC")
+    List<ProduitEntity> trierProduitsNomsPrix();
 }

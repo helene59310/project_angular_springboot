@@ -89,8 +89,24 @@ class DemoApplicationTests {
 	}
 
 	@Test
-	public void findByCategorieIdCat() {
+	public void testFindByCategorieIdCat() {
 		List<ProduitEntity> prods = produitRepository.findByCategorieIdCat(2L);
+		for (ProduitEntity p : prods) {
+			System.out.println(p);
+		}
+	}
+
+	@Test
+	public void testFindByOrderByNomProduitAsc() {
+		List<ProduitEntity> prods = produitRepository.findByOrderByNomProduitAsc();
+		for (ProduitEntity p : prods) {
+			System.out.println(p);
+		}
+	}
+
+		@Test
+	public void testTrierProduitsNomsPrix() {
+		List<ProduitEntity> prods = produitRepository.trierProduitsNomsPrix();
 		for (ProduitEntity p : prods) {
 			System.out.println(p);
 		}
