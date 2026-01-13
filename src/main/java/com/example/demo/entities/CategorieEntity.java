@@ -7,7 +7,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class CategorieEntity {
     @Id
@@ -19,32 +27,5 @@ public class CategorieEntity {
 
     @OneToMany (mappedBy = "categorie")
     private List<ProduitEntity> produitEntity;
-
-    public CategorieEntity() {
-    }
-
-    public Long getIdCat() {
-        return idCat;
-    }
-
-    public void setIdCat(Long idCat) {
-        this.idCat = idCat;
-    }
-
-    public String getNomCat() {
-        return nomCat;
-    }
-
-    public void setNomCat(String nomCat) {
-        this.nomCat = nomCat;
-    }
-
-    public String getDescriptionCat() {
-        return descriptionCat;
-    }
-
-    public void setDescriptionCat(String descriptionCat) {
-        this.descriptionCat = descriptionCat;
-    }
 
 }
