@@ -47,4 +47,25 @@ class DemoApplicationTests {
 		for (ProduitEntity produit:produits)
 		System.out.println(produit);
 	}
+
+	@Test
+	public void testFindByNomProduit() {
+		List<ProduitEntity> produits = produitRepository.findByNomProduit("PC Hp");
+		for (ProduitEntity produit:produits)
+		System.out.println(produit);
+	}
+
+	@Test
+	public void testFindByNomProduitContains() {
+		List<ProduitEntity> produits = produitRepository.findByNomProduitContains("e");
+		for (ProduitEntity produit:produits)
+		System.out.println(produit);
+	}
+
+	@Test
+	public void testFindByPrixProduit() {
+		List<ProduitEntity> produits = produitRepository.findByPrixProduit(500.5);
+		for (ProduitEntity produit:produits)
+		System.out.println(produit);
+	}
 }
