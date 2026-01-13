@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.example.demo.entities.CategorieEntity;
 import com.example.demo.entities.ProduitEntity;
 
 public interface ProduitRepository extends JpaRepository<ProduitEntity, Long> {
@@ -16,5 +17,8 @@ public interface ProduitRepository extends JpaRepository<ProduitEntity, Long> {
 
     @Query("select p from ProduitEntity p where p.nomProduit like %:nomProduit and p.prixProduit > :prixProduit")
     List<ProduitEntity> findByNomPrix (@Param("nomProduit") String nomProduit,@Param("prixProduit") Double prixProduit);
+
+    @Query("select p from ProduitEntity p where p.categorie = ?1")
+    List<ProduitEntity> findByCategorie (CategorieEntity categorie);
 
 }

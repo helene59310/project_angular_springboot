@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.demo.entities.CategorieEntity;
 import com.example.demo.entities.ProduitEntity;
 import com.example.demo.repositories.ProduitRepository;
 
@@ -72,6 +73,16 @@ class DemoApplicationTests {
 	@Test
 	public void testfindByNomPrix() {
 		List<ProduitEntity> prods = produitRepository.findByNomPrix("PC Asus", 900.5);
+		for (ProduitEntity p : prods) {
+			System.out.println(p);
+		}
+	}
+
+	@Test
+	public void testfindByCategorie() {
+		CategorieEntity cat = new CategorieEntity();
+		cat.setIdCat(2L);
+		List<ProduitEntity> prods = produitRepository.findByCategorie(cat);
 		for (ProduitEntity p : prods) {
 			System.out.println(p);
 		}
