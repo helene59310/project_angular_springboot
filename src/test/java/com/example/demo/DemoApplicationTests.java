@@ -88,4 +88,12 @@ class DemoApplicationTests {
 		}
 	}
 
+	@Test
+	public void findByCategorieIdCat() {
+		List<ProduitEntity> prods = produitRepository.findByCategorieIdCat(2L);
+		for (ProduitEntity p : prods) {
+			System.out.println(p);
+		}
+	}
+
 }
