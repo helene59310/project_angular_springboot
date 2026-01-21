@@ -48,4 +48,9 @@ public class ProduitController {
    public void deleteProduit(@PathVariable("id") Long id) {
       produitService.deleteProduitById(id);
    }
+
+   @GetMapping("/productsByCat/{idCat}")
+   public List<ProduitEntity> getProduitsByIdCat(@PathVariable("idCat") Long idCat) {
+      return produitService.findByCategorieIdCat(idCat);
+   }
 }
